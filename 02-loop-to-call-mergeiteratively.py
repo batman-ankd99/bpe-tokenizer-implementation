@@ -38,6 +38,7 @@ while True:
   index_vocab += 1
 
   #break logic here
+  stats = get_stats(tokens)
   sorted_stats_list = sorted(((v, k) for k, v in stats.items()), reverse=True)
   if sorted_stats_list[0][0] == 1:
       break
