@@ -25,12 +25,14 @@ def merge(ids, most_pair, idx):    #ids -> list of tokens, to replace all consec
 
   return new_ids
 
-
-
 index_vocab = 256
 while True:
   print("tokens before merge happens : ", tokens)
   stats = get_stats(tokens)
+  sorted_stats_list = sorted(((v, k) for k, v in stats.items()), reverse=True)
+  if sorted_stats_list[0][0] == 1:
+      break
+
   top_pair = max(stats, key=stats.get)
   print("pair to be merged together in next iteration : ", top_pair)
   print("index vocab which will replace this pair : ", index_vocab)
@@ -38,7 +40,7 @@ while True:
   index_vocab += 1
 
   #break logic here
-  stats = get_stats(tokens)
-  sorted_stats_list = sorted(((v, k) for k, v in stats.items()), reverse=True)
-  if sorted_stats_list[0][0] == 1:
-      break
+  #stats = get_stats(tokens)
+  #sorted_stats_list = sorted(((v, k) for k, v in stats.items()), reverse=True)
+  #if sorted_stats_list[0][0] == 1:
+#      break
