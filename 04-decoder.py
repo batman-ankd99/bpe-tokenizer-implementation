@@ -19,6 +19,10 @@ def decode(ids):
   return ids_expanded
 
 
-ids_full = decode(ids)
+ids_full = decode(ids) # integers are in this, convert it into bytes objects
+decoded_bytes = bytes(ids_full)
 print(ids_full)
 print(len(ids_full))
+
+decoded_text = decoded_bytes.decode("utf-8")
+print(decoded_text)
