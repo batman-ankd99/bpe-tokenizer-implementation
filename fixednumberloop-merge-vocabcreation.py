@@ -33,7 +33,7 @@ merges = {}       #stores merge rules, merge_vocab[top_pair] = index_vocab
 
 for i in range(num_merges):
     idx = 256 + i
-    stats = get_stats(tokens)
+    stats = get_stats(ids)
     pair = max(stats, key=stats.get)
     ids = merge(ids, pair, idx)
     merges[pair] = idx
