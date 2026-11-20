@@ -25,6 +25,7 @@ def merge(ids, most_pair, idx):    #ids -> list of tokens, to replace all consec
 
   return new_ids
 
+merges = {}
 index_vocab = 256
 while True:
   print("tokens before merge happens : ", tokens)
@@ -34,6 +35,7 @@ while True:
       break
 
   top_pair = max(stats, key=stats.get)
+  merges[top_pair] = index_vocab
   print("pair to be merged together in next iteration : ", top_pair)
   print("index vocab which will replace this pair : ", index_vocab)
   tokens = merge(tokens, top_pair, index_vocab)
