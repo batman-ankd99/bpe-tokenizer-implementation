@@ -20,7 +20,7 @@ def merge(ids, most_pair, idx):    #ids -> list of tokens, to replace all consec
 
 def encode(text):
   tokens = list(text.encode("utf-8"))
-  while True:
+  while len(tokens) >= 2:#True:
     stats = get_stats(tokens)      #will simply give out all consective pairs of bytes in present text byte tokens
     candidates = [pair for pair in stats if pair in merges]    # will match those pair with merge dictionary which was made during training. these are only eligible to be merged
     if not candidates:
